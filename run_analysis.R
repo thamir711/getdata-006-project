@@ -70,6 +70,7 @@ names(allData)[2:562] <- colLabels$V2
 #    variable for each activity and each subject. 
 #    Change subject variable into class factor.
 allData$subject <- factor(allData$subject)
+library(reshape2)
 meltData <- melt(allData, id.vars = c("subject", "activity"))
 averagesData <- dcast(meltData, subject + activity ~ ..., mean)
 # Checking ...
